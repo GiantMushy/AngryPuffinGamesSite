@@ -1,11 +1,17 @@
 // Angry Puffin Games — signup form
 // Three states: idle -> submitting -> success (or error).
 //
-// TODO before real launch: set SIGNUP_ENDPOINT to a real list provider
-// (Buttondown, Mailchimp, Formspree, or a Cloudflare Worker in front of one).
-// GitHub Pages is static, so this form can't send email on its own —
-// it needs a working endpoint here to actually collect addresses.
-const SIGNUP_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
+// GitHub Pages is static and can't send email on its own, so signups go
+// through Formspree, which forwards each submission to a real inbox.
+//
+// >>> ACTIVATION (one step, no code): <<<
+//   1. Create a free form at https://formspree.io and set its recipient to
+//      Bjarki@angrypuffingames.com (or a dedicated list inbox).
+//   2. Paste the form's endpoint URL below (looks like
+//      "https://formspree.io/f/xxxxxxx").
+// Until an endpoint is set, the form runs in demo mode: it shows the success
+// state but does NOT collect the address anywhere.
+const SIGNUP_ENDPOINT = "https://formspree.io/f/mdenlqqb";
 
 (function () {
   const form = document.getElementById("signup-form");

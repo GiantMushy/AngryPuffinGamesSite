@@ -56,3 +56,23 @@ const SIGNUP_ENDPOINT = "https://formspree.io/f/mdenlqqb";
     }
   });
 })();
+
+// Screens carousel — duplicate the frames once so the CSS marquee
+// (translateX 0 -> -50%) loops seamlessly. Skipped when the visitor
+// prefers reduced motion, where the rail stays a manual scroller.
+(function () {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (prefersReduced.matches) return;
+
+  const track = document.querySelector(".rail-track");
+  if (!track) return;
+
+  const originals = Array.from(track.children);
+  originals.forEach((frame) => {
+    const clone = frame.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    // Prevent duplicated screenshots from being announced twice by screen readers.
+    clone.querySelectorAll("img").forEach((img) => img.setAttribute("alt", ""));
+    track.appendChild(clone);
+  });
+})();

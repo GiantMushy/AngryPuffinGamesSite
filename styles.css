@@ -178,6 +178,104 @@ a:hover { color: var(--cream); }
   box-shadow: 1px 1px 0 var(--ink);
 }
 
+/* ---------- Language switcher ---------- */
+.lang-switch {
+  position: relative;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cream);
+  background: rgba(11, 20, 20, 0.5);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 12px 6px 8px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.lang-toggle:hover {
+  transform: translate(2px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.lang-flag {
+  display: inline-flex;
+  width: 24px;
+  height: 17px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1.5px solid var(--ink);
+  flex: none;
+}
+.lang-flag svg { width: 100%; height: 100%; display: block; }
+.lang-code { letter-spacing: 0.06em; }
+.lang-caret {
+  width: 10px;
+  height: 6px;
+  color: var(--teal-tint);
+  transition: transform 0.18s ease;
+}
+.lang-switch.open .lang-caret { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 178px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  background: var(--deep);
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--ink);
+  display: none;
+  z-index: 60;
+}
+.lang-switch.open .lang-menu { display: block; }
+.lang-menu li { margin: 0; }
+.lang-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--mint-text);
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.lang-option:hover { background: rgba(78, 207, 199, 0.14); color: var(--cream); }
+.lang-option[aria-selected="true"] {
+  background: var(--teal);
+  color: var(--ink);
+}
+.lang-option .lang-flag { width: 26px; height: 18px; }
+.lang-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.lang-note {
+  font-size: 11px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--muted-text);
+  margin-top: 1px;
+}
+.lang-option:hover .lang-note { color: var(--slate-text); }
+.lang-option[aria-selected="true"] .lang-note { color: rgba(11, 20, 20, 0.62); }
+
 /* ---------- Hero ---------- */
 .hero {
   padding: 88px 32px 96px;
@@ -407,27 +505,27 @@ a:hover { color: var(--cream); }
   color: var(--slate-text);
   margin: 0;
 }
-/* Auto-scrolling carousel: .rail is the viewport (clips overflow), the
-   .rail-track slides left continuously. main.js clones the frames once so
-   the loop is seamless — the animation travels exactly one original set
-   (-50% of the doubled track) and repeats with no visible jump. */
+/* Draggable carousel with idle auto-scroll (driven by main.js).
+   .rail is the scroll viewport; main.js clones the frames once and advances
+   scrollLeft each frame, wrapping seamlessly by exactly one set width.
+   Auto-scroll pauses on hover / drag / wheel and resumes after a short idle. */
 .rail {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 34px 0 26px;
+  cursor: grab;
+  scroll-behavior: auto;
+  scrollbar-width: none;          /* Firefox — hide the scrollbar, keep scrolling */
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
+.rail::-webkit-scrollbar { display: none; }
+.rail.dragging { cursor: grabbing; }
+.rail.dragging .rail-frame { pointer-events: none; }
 .rail-track {
-  display: flex;
+  display: inline-flex;
   gap: 22px;
-  width: max-content;
   padding: 0 11px;
-  animation: rail-marquee 60s linear infinite;
-}
-.rail:hover .rail-track {
-  animation-play-state: paused;
-}
-@keyframes rail-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 .rail-frame {
   flex: none;
@@ -437,18 +535,20 @@ a:hover { color: var(--cream); }
   border-radius: 34px;
   box-shadow: 8px 8px 0 rgba(78, 207, 199, 0.28);
 }
+/* Images shouldn't hijack the drag (native image-drag) or get text-selected. */
+.rail-frame img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
 .rail-frame img {
   width: 232px;
   border-radius: 26px;
 }
-/* Respect reduced-motion: stop the auto-scroll and let people scroll by hand. */
+/* Respect reduced-motion: main.js skips the auto-scroll; snapping just makes
+   hand-scrolling feel tidier here. */
 @media (prefers-reduced-motion: reduce) {
   .rail {
-    overflow-x: auto;
     scroll-snap-type: x mandatory;
-  }
-  .rail-track {
-    animation: none;
   }
   .rail-frame {
     scroll-snap-align: center;
@@ -755,4 +855,9 @@ a:hover { color: var(--cream); }
   .signup-form { flex-direction: column; }
   .signup-form input[type="email"],
   .signup-form button { flex: 1 1 auto; width: 100%; }
+
+  .nav-right { gap: 12px; }
+  .site-header { padding: 12px 18px; }
+  .lang-code { display: none; }        /* flag + caret only on phones */
+  .lang-toggle { padding: 6px 10px; }
 }

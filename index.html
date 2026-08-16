@@ -22,23 +22,31 @@
     </a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#studio">The Nest</a></li>
-        <li><a href="#team">The Team</a></li>
-        <li><a href="#game">The Game</a></li>
+        <li><a href="#studio" data-i18n="nav-nest">The Nest</a></li>
+        <li><a href="#team" data-i18n="nav-team">The Team</a></li>
+        <li><a href="#game" data-i18n="nav-game">The Game</a></li>
       </ul>
-      <a class="nav-cta" href="#updates">Get updates</a>
+      <a class="nav-cta" href="#updates" data-i18n="nav-cta">Get updates</a>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
+          <span class="lang-flag" id="lang-flag"></span>
+          <span class="lang-code" id="lang-code">EN</span>
+          <svg class="lang-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Language"></ul>
+      </div>
     </div>
   </header>
 
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-copy">
-        <span class="badge-pill">Reykjavík · indie game studio</span>
-        <h1>We make games that get people <span class="script">loud.</span></h1>
-        <p class="hero-lead">The perfect excuse to argue with your friends — a party game about debate, corruption and calling people out.</p>
+        <span class="badge-pill" data-i18n="hero-badge">Reykjavík · indie game studio</span>
+        <h1 data-i18n-html="hero-h1">We make games that get people <span class="script">loud.</span></h1>
+        <p class="hero-lead" data-i18n="hero-lead">The perfect excuse to argue with your friends — a party game about debate, corruption and calling people out.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#game">Meet State Your Case</a>
-          <a class="btn btn-secondary" href="#updates">Join the mailing list</a>
+          <a class="btn btn-primary" href="#game" data-i18n="hero-cta1">Meet State Your Case</a>
+          <a class="btn btn-secondary" href="#updates" data-i18n="hero-cta2">Join the mailing list</a>
         </div>
       </div>
       <img class="hero-art" src="assets/logo-full.png" alt="Angry Puffin Games logo">
@@ -48,12 +56,12 @@
   <section class="studio" id="studio">
     <div class="studio-inner">
       <div class="studio-copy">
-        <span class="eyebrow">THE NEST</span>
-        <h2>Four students, one game dev course, zero chill.</h2>
-        <p>Angry Puffin Games is an Icelandic studio building party games for mobile. We care about two things: getting everyone playing together, and giving them something worth shouting about.</p>
+        <span class="eyebrow" data-i18n="studio-eyebrow">THE NEST</span>
+        <h2 data-i18n="studio-h2">Four students, one game dev course, zero chill.</h2>
+        <p data-i18n="studio-p">Angry Puffin Games is an Icelandic studio building party games for mobile. We care about two things: getting everyone playing together, and giving them something worth shouting about.</p>
       </div>
       <figure class="studio-quote">
-        <blockquote>&ldquo;We wanted the UI to feel clean and simple and easy to use.&rdquo;</blockquote>
+        <blockquote data-i18n="studio-quote">&ldquo;We wanted the UI to feel clean and simple and easy to use.&rdquo;</blockquote>
         <figcaption>Angry Puffin Games</figcaption>
       </figure>
     </div>
@@ -69,29 +77,29 @@
       </div>
       <div class="game-desc">
         <span class="game-meta-pill">STATE YOUR CASE</span>
-        <span class="game-mode">Local (one phone) · Online — coming soon</span>
-        <p>An Icelandic party game inspired by parliamentary debate culture and the Morfís speech competition hosted in Universities here in Iceland. Teams get a topic, give a minute speech, sneak in corruption tasks for points — and at the end of the round, accuse the rivals they think were completing their corruption.</p>
+        <span class="game-mode" data-i18n="game-mode">Local (one phone) · Online — coming soon</span>
+        <p data-i18n="game-desc">An Icelandic party game inspired by parliamentary debate culture and the Morfís speech competition hosted in Universities here in Iceland. Teams get a topic, give a minute speech, sneak in corruption tasks for points — and at the end of the round, accuse the rivals they think were completing their corruption.</p>
       </div>
     </div>
     <div class="loop-cards">
       <div class="loop-card card-01">
-        <h3>State your case</h3>
-        <p>The moderator picks a Versus or Scenario topic. Your team/you prepare and then argue it like your life depends on it.</p>
+        <h3 data-i18n="loop1-h">State your case</h3>
+        <p data-i18n="loop1-p">The moderator picks a Versus or Scenario topic. Your team/you prepare and then argue it like your life depends on it.</p>
       </div>
       <div class="loop-card card-02">
-        <h3>Get corrupt</h3>
-        <p>Secret tasks worth big points: fake a sneezing fit, quote a philosopher who does not exist, compliment your opponent mid-insult. Do it without getting caught.</p>
+        <h3 data-i18n="loop2-h">Get corrupt</h3>
+        <p data-i18n="loop2-p">Secret tasks worth big points: fake a sneezing fit, quote a philosopher who does not exist, compliment your opponent mid-insult. Do it without getting caught.</p>
       </div>
       <div class="loop-card card-03">
-        <h3>Point fingers</h3>
-        <p>Round over. Accuse whoever you think completed their tasks. Get the correct accusations and steal their points if not lose some of yours.</p>
+        <h3 data-i18n="loop3-h">Point fingers</h3>
+        <p data-i18n="loop3-p">Round over. Accuse whoever you think completed their tasks. Get the correct accusations and steal their points if not lose some of yours.</p>
       </div>
     </div>
   </section>
 
   <section class="screens">
     <div class="screens-header">
-      <h2>Clean and simple and easy to use.</h2>
+      <h2 data-i18n="screens-h2">Clean and simple and easy to use.</h2>
     </div>
     <div class="rail">
       <div class="rail-track">
@@ -105,7 +113,7 @@
         <div class="rail-frame"><img src="assets/screen-corruption.png" alt="Corruption reveal screen"></div>
       </div>
     </div>
-    <p class="packs-label">Pick your Interest — Topic Packs</p>
+    <p class="packs-label" data-i18n="packs-label">Pick your Interest — Topic Packs</p>
     <div class="packs-grid">
       <div class="pack-card pack-featured"><img src="assets/pack-classic.png" alt="Classic topic pack — unlocked"></div>
       <div class="pack-card"><img src="assets/pack-popculture.png" alt="Pop Culture topic pack — locked"></div>
@@ -118,17 +126,17 @@
   <section class="events" id="events">
     <div class="events-inner">
       <div class="events-header">
-        <span class="eyebrow">EVENTS</span>
-        <h2>Where to find us.</h2>
+        <span class="eyebrow" data-i18n="events-eyebrow">EVENTS</span>
+        <h2 data-i18n="events-h2">Where to find us.</h2>
       </div>
       <div class="events-rail">
         <article class="event-card">
-          <strong>Gamescom 2026 · Cologne</strong>
-          <p>We are packing the puffins and bringing State Your Case to Cologne. Come argue with us in person — or sign up below and we will tell you where to find the booth.</p>
+          <strong data-i18n="event1-title">Gamescom 2026 · Cologne</strong>
+          <p data-i18n="event1-p">We are packing the puffins and bringing State Your Case to Cologne. Come argue with us in person — or sign up below and we will tell you where to find the booth.</p>
         </article>
         <article class="event-card">
-          <strong>GameMakers Iceland · Reykjavík</strong>
-          <p>Home turf. Catch us at GameMakers Iceland, showing off State Your Case alongside the rest of the country's game dev scene. Come say hæ, play a round, and tell us we are wrong.</p>
+          <strong data-i18n="event2-title">GameMakers Iceland · Reykjavík</strong>
+          <p data-i18n="event2-p">Home turf. Catch us at GameMakers Iceland, showing off State Your Case alongside the rest of the country's game dev scene. Come say hæ, play a round, and tell us we are wrong.</p>
         </article>
       </div>
     </div>
@@ -137,8 +145,8 @@
   <section class="team" id="team">
     <div class="team-inner">
       <div class="team-header">
-        <h2>The Puffins</h2>
-        <p>Computer science and software engineering students who met in a game dev course and never stopped arguing.</p>
+        <h2 data-i18n="team-h2">The Puffins</h2>
+        <p data-i18n="team-p">Computer science and software engineering students who met in a game dev course and never stopped arguing.</p>
       </div>
       <div class="team-grid">
         <figure class="team-card"><img src="assets/team-bjarki.jpg" alt="Bjarki Már Aronsson — Founder, Software engineering"></figure>
@@ -152,33 +160,34 @@
   <section class="signup" id="updates">
     <div class="signup-inner">
       <img src="assets/logo-mark.png" alt="Angry Puffin Games mark">
-      <h2>Be first to argue.</h2>
-      <p>Launch dates, new topic packs, and more news.</p>
+      <h2 data-i18n="signup-h2">Be first to argue.</h2>
+      <p data-i18n="signup-p">Launch dates, new topic packs, and more news.</p>
 
       <form class="signup-form" id="signup-form">
-        <input type="email" id="signup-email" placeholder="you@example.com" required>
-        <button type="submit" id="signup-submit">Sign me up</button>
+        <input type="email" id="signup-email" placeholder="you@example.com" data-i18n-placeholder="signup-placeholder" required>
+        <button type="submit" id="signup-submit" data-i18n="signup-submit">Sign me up</button>
       </form>
-      <div class="signup-error hidden" id="signup-error">Something went wrong — please try again.</div>
-      <div class="signup-success hidden" id="signup-success">You are on the list. Start practising your closing statement.</div>
+      <div class="signup-error hidden" id="signup-error" data-i18n="signup-error">Something went wrong — please try again.</div>
+      <div class="signup-success hidden" id="signup-success" data-i18n="signup-success">You are on the list. Start practising your closing statement.</div>
 
-      <p class="signup-fine">No spam, no data sold, unsubscribe any time.</p>
+      <p class="signup-fine" data-i18n="signup-fine">No spam, no data sold, unsubscribe any time.</p>
 
       <div class="ideas-callout">
-        <p>Got your own topics or corruption tasks you want to see in the game? Send them our way — we'll take a look and maybe add them in.</p>
-        <a class="btn btn-secondary" href="mailto:Bjarki@angrypuffingames.com?subject=Topic%20%26%20corruption%20task%20ideas&amp;body=Here%20are%20my%20ideas%3A%0A%0A">Send us your ideas</a>
+        <p data-i18n="ideas-p">Got your own topics or corruption tasks you want to see in the game? Send them our way — we'll take a look and maybe add them in.</p>
+        <a class="btn btn-secondary" href="mailto:Bjarki@angrypuffingames.com?subject=Topic%20%26%20corruption%20task%20ideas&amp;body=Here%20are%20my%20ideas%3A%0A%0A" data-i18n="ideas-btn">Send us your ideas</a>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
-    <span>© 2026 Angry Puffin Games · Reykjavík, Iceland</span>
+    <span data-i18n="footer-copy">© 2026 Angry Puffin Games · Reykjavík, Iceland</span>
     <div class="footer-links">
       <a href="mailto:Bjarki@angrypuffingames.com">Bjarki@angrypuffingames.com</a>
-      <a href="#top">Back to top</a>
+      <a href="#top" data-i18n="footer-back">Back to top</a>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

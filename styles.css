@@ -583,6 +583,7 @@ a:hover { color: var(--cream); }
 .pack-card img {
   width: 100%;
   height: auto;
+  border-radius: 12px;
   filter: drop-shadow(4px 6px 0 rgba(11, 20, 20, 0.45));
 }
 .pack-card:nth-child(odd) { transform: rotate(-1.5deg); }
